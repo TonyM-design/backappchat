@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat</title>
+</head>
+<body>
+    <h1>Chat</h1>
+
+    <!-- Afficher les messages existants -->
+    <div>
+        <h2>Derniers messages :</h2>
+        <ul>
+            <li th:each="message : ${listmessage}">
+                <span th:text="${message}"></span>: <span th:text="${message.content}"></span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Formulaire pour poster de nouveaux messages -->
+    <div>
+        <h2>Poster un nouveau message :</h2>
+        <form th:action="@{/messages}" method="post">
+            <input type="text" name="content" placeholder="Votre message" required/>
+            <input type="submit" value="Envoyer"/>
+        </form>
+    </div>
+
+    <!-- Bouton pour s'identifier -->
+    <div>
+        <h2>Identifiez-vous :</h2>
+        <form th:action="@{/login}" method="post">
+            <input type="text" name="username" placeholder="Nom d'utilisateur" required/>
+            <input type="password" name="password" placeholder="Mot de passe" required/>
+            <input type="submit" value="Se connecter"/>
+        </form>
+    </div>
+
+    <!-- Menu pour les différents canaux -->
+    <div>
+        <h2>Canals :</h2>
+        <ul>
+            <li th:each="canal : ${listcanal}">
+                <a th:href="@{'/canals/' + ${canal.id}}"><span th:text="${canal.name}"></span></a>
+            </li>
+        </ul>
+    </div>
+
+</body>
+</html>

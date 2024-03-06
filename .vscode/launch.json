@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-TpChatApplication<TP-QuizCapitales>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.tp.chat.TpChatApplication",
+            "projectName": "TP-QuizCapitales",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
